@@ -1,0 +1,156 @@
+<html>
+<head>
+<style type="text/css">
+h1 {
+	color: black;
+}
+
+h2 {
+	color: white;
+}
+
+#mainCnt {
+	margin: 0px;
+	margin-top: 50px;
+	margin-left: 200px;
+	width: 800px;
+	font-family: Calibri;
+}
+
+#footer {
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	font-style: italic;
+	font-size: 12px;
+	padding: 10px 10px 10px 10px;
+	border-top: 1px solid;
+	border-top-color: white;
+}
+
+.errMessage {
+	color: red;
+	font-weight: bold;
+	font-style: italic;
+	font-size: 14px;
+}
+
+h3 {
+	color: black;
+}
+
+.btn {
+	padding: 5px 10px 5px 10px;
+	background-color: red;
+	color: white;
+	font-weight: bold;
+	font-size: 12px;
+}
+</style>
+<script type="text/javascript">
+	function validateForm() {
+		var ufname = myform.firstName.value;
+		var ulname = myform.lastName.value;
+		var ucname = myform.company.value;
+		var umobile = myform.mobileNo.value;
+		var uemail = myform.email.value;
+		var upassword = myform.password.value;
+		var upic = myform.photo.value;
+		console.log(upic);
+
+		var flag = false;
+		if (ufname == "" || ufname == null) {
+			alert("Please fill the First Name");
+		} else if (ulname == "" || ulname == null) {
+			flag = false;
+			alert("Please fill the Last Name");
+		} else if (ucname == "" || ucname == null) {
+			flag = false;
+			alert("Please fill the Company Name");
+		} else if (umobile == "" || umobile == null) {
+			flag = false;
+			alert("Please fill the Mobile Number");
+		} else if (uemail == "" || uemail == null) {
+			flag = false;
+			alert("Please fill the Email");
+		} else if (upassword == "" || upassword == null) {
+			flag = false;
+			alert("Please fill the Password");
+		} else if (upic == "" || upic == null) {
+			flag = false;
+			alert("Please Upload Image");
+		} else if (ufname == "Mayur" && ulname == "Jain"
+				&& ucname == "Capgemini" && umobile == "8652407781"
+				&& uemail == "mayur1234@capgemini.com"
+				&& upassword == "Asdf@1234"
+				&& upic=="C:\\fakepath\\abc.png") {
+			flag = true;
+			alert("Successful!!!!");
+		} else {
+			flag = false;
+			alert("Please Enter Valid Merchant Details");
+		}
+
+		if (flag)
+			window.location.href = "success.html";
+		return flag;
+	}
+</script>
+</head>
+<body>
+	<form name="myform" method="post">
+		<table border="2" align="center">
+			<tbody>
+				<tr>
+					<th colspan="3" style="color: red;">Merchant Form</th>
+				</tr>
+				<tr>
+					<td>Enter First Name</td>
+					<td><input type="text" maxlength="20" pattern="([a-zA-Z])*"
+						id="firstName" name="firstName" required=""></td>
+
+				</tr>
+				<tr>
+					<td>Enter Last Name</td>
+					<td><input type="text" maxlength="20" pattern="([a-zA-Z])*"
+						id="lastName" name="lastName" required=""></td>
+
+				</tr>
+				<tr>
+					<td>Enter Company Name</td>
+					<td><input type="text" maxlength="20" pattern="([a-zA-Z])*"
+						id="company" name="companyName" required=""></td>
+				</tr>
+				<tr>
+					<td>Enter Mobile Number</td>
+					<td><input type="number" pattern="[1-9][0-9]{9}" id="mobileNo"
+						name="mobileNo" required=""></td>
+
+				</tr>
+				<tr>
+					<td>Enter Email Id</td>
+					<td><input type="email" maxlength="30"
+						pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+						id="email" name="email" required=""></td>
+				</tr>
+				<tr>
+					<td>Enter Password</td>
+					<td><input type="password" maxlength="20"
+						pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%]).{8,20})"
+						id="password" name="password" required=""></td>
+				</tr>
+				
+				<tr>
+					<td>Select Photo</td>
+					<td colspan="2" align="center">
+						<input type="file" id="photo" name="photo" required="">
+					</td>				
+				<tr>
+					<td colspan="2" align="center"><input type="button"
+						class="btn" value="Create Account" onclick="validateForm()"></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</body>
+</html>
